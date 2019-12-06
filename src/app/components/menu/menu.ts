@@ -22,7 +22,7 @@ export class MenuComponent implements OnInit {
     async getChannels() {
         this.channelService.getAll().then((value) => {
             this.channels = value;
-        })
+        });
     }
 }
 

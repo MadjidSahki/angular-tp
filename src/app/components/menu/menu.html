@@ -1,36 +1,33 @@
 <nav>
-  <add-channel></add-channel>
+  <add-channel (channelAdded)="getChannels()"></add-channel>
   <table>
     <thead>
       <th>Channels</th>
     </thead>
     <tbody>
       <tr *ngFor="let channel of channels">
-        <td>{{channels}}</td>
+        <td [routerLink]="channel.id">{{channel.name}}</td>
       </tr>
     </tbody>
   </table>
-
-  <a [routerLink]=""></a>
 </nav>
 
 <style>
-  :host {
-    display: block;
-    padding: 0;
-    margin: 0;
-  }
+:host {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
 
-  add-channel {
-    border-bottom: 1px solid #eee;
+add-channel {
+  border-bottom: 1px solid #eee;
 
-  }
+}
 
-  a {
-    display: block;
-    padding: 8px 16px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-  }
-
+a {
+  display: block;
+  padding: 8px 16px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
 </style>

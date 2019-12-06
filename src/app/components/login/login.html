@@ -9,7 +9,7 @@
   <nz-form-item>
     <label for="password">Mot de Passe</label>
     <!-- TODO data-binding -->
-    <input  type="password"  nz-input  required name="password" #password="ngModel"  [(ngModel)]="model.password" />
+    <input  type="password" nz-input required name="password" #password="ngModel"  [(ngModel)]="model.password" />
     <nz-form-explain *ngIf="f.submitted && !password.valid" class="help-block">Password required</nz-form-explain>
   </nz-form-item>
   <div class="actions">

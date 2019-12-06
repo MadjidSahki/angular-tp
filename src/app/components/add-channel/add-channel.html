@@ -1,24 +1,22 @@
 <button nz-button nzType="primary" (click)="show()">Add channel</button>
-<nz-modal [(nzVisible)]="isVisible" nzTitle="Nouveau Channel" nzOkText="Ok" nzCancelText="Cancel" (nzOnOk)="save()"
-  (nzOnCancel)="hide()">
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Nouveau Channel" nzOkText="Ok" nzCancelText="Cancel" (nzOnOk)="save()" (nzOnCancel)="hide()">
 
   <form class="modal-content" (ngSubmit)="save()" #f="ngForm">
     <nz-form-item>
       <label for="name">Nom</label>
-      <!-- TODO input text required -->
+      <input type="text" nz-input required name="name" #username="ngModel" [(ngModel)]="model.name" />
     </nz-form-item>
   </form>
 </nz-modal>
 
 <style>
-  :host {
-    display: block;
-    text-align: center;
-    padding: 15px;
-  }
+:host {
+  display: block;
+  text-align: center;
+  padding: 15px;
+}
 
-  .modal {
-    text-align: left;
-  }
-
+.modal {
+  text-align: left;
+}
 </style>
