@@ -10,10 +10,7 @@ import { ChannelService } from '../../services/index';
     selector: 'menu',
     templateUrl: 'menu.html',
 })
-export class MenuComponent implements OnInit {
-    ngOnInit(): void {
-        this.getChannels();
-    }
+export class MenuComponent {
     constructor(
         private channelService: ChannelService,
     ) { }

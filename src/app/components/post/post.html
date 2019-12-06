@@ -1,6 +1,6 @@
 <div class="header">
   <div class="user-picture">
-    <!-- TODO utiliser le composant user-profile-picture -->
+    <user-profile-picture [src]="post.user.pictureUrl"></user-profile-picture>
   </div>
   <div class="username">
     {{post.user.username}}
@@ -29,7 +29,9 @@
 <div class="footer">
   <nz-collapse [nzBordered]="false" *ngIf="post.comments && post.comments.length > 0">
     <nz-collapse-panel [nzHeader]="post.comments.length +' commentaire' + (post.comments.length > 1 ? 's' : '')">
-      <!-- TODO afficher le liste des posts avec post-component -->
+      <div *ngFor="let com of post.comments">
+        <post-comment [comment]="com"></post-comment>
+      </div>
     </nz-collapse-panel>
   </nz-collapse>
 

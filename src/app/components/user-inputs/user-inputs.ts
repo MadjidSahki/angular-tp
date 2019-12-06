@@ -13,18 +13,17 @@ import { ActivatedRoute } from '@angular/router';
 export class UserInputsComponent {
 
     @Input() channelId: string;
-    message:string;
-    
-    @Output()
-    submitted: EventEmitter<any> = new EventEmitter();
+    message: string;
+
+    @Output() submitted: EventEmitter<any> = new EventEmitter();
 
     constructor(
         private postervice: PostService
     ) {
     }
 
-    send() {
-        if(!this.message) return;
-        // TODO envoyer le message via l'évènement submitted
+    async send() {
+        if (!this.message) return;
+        this.submitted.emit(this.message);
     }
 }

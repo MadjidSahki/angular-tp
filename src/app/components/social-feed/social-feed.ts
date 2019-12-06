@@ -20,10 +20,10 @@ export class SocialFeedComponent implements OnInit {
     onSubmit(message: string) {
         this.postService.post(this.channelId, message);
         this.postSocket.onPost((item) => {
-            if (item) {
+            if (item && this.items.includes(item) === false) {
                 this.items.push(item);
             }
-        })
+        });
     }
 
     ngOnInit() {

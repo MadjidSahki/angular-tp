@@ -24,8 +24,6 @@ export class PostComponent {
         this.post.content = this.parser.parse(this.post);
     }
 
-
-
     onComment(message: string) {
         this.postService.comment(this.post, message);
         this.postSocket.onComment((comment) => {
@@ -35,10 +33,10 @@ export class PostComponent {
 
     hasClicked(event) {
         // WIP
-        if(this.post.liked === undefined || this.post.liked === null) {
+        if (this.post.liked === undefined || this.post.liked === null) {
             this.post.liked = true;
         } else {
-        this.post.liked = !this.post.liked;
+            this.post.liked = !this.post.liked;
         }
     }
 }
