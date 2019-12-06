@@ -15,7 +15,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 export class RegisterComponent {
     @ViewChild(NgForm, { static: false })
     ngForm: NgForm;
-
+    usernameInvalid = false;
     model = new UserRegistration();
 
     constructor(
@@ -28,12 +28,14 @@ export class RegisterComponent {
         if (this.ngForm.form.invalid) {
             return;
         }
+
         let exist = await this.registrationService.usernameExists(this.model.username)
         let user: UserRegistration;
 
         if (!exist) {
             user = await this.registrationService.register(this.model);
         } else {
+            this.usernameInvalid = true;
             return;
         }
 
