@@ -3,12 +3,14 @@
   <nz-form-item>
     <label for="username">Username</label>
     <!-- TODO data-binding -->
-    <input type="text" nz-input name="username" #username="ngModel" [(ngModel)]="model.username" />
+    <input  type="text" nz-input required name="username" #username="ngModel" [(ngModel)]="model.username"  />
+    <nz-form-explain *ngIf="f.submitted && !username.valid" class="help-block">Username required</nz-form-explain>
   </nz-form-item>
   <nz-form-item>
     <label for="password">Mot de Passe</label>
     <!-- TODO data-binding -->
-    <input type="password" nz-input name="password" #password="ngModel"  [(ngModel)]="model.password" />
+    <input  type="password"  nz-input  required name="password" #password="ngModel"  [(ngModel)]="model.password" />
+    <nz-form-explain *ngIf="f.submitted && !password.valid" class="help-block">Password required</nz-form-explain>
   </nz-form-item>
   <div class="actions">
     <button [disabled]="loading" nz-button nzType="primary">Se Connecter</button>
