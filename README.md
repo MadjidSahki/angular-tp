@@ -20,31 +20,31 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## TP
 
-### Register
+### Register CHECK
 
 #### Level I
 
-1. Faire le formulaire pour l'ajout d'un user
-2. Rendre username et le mot de passe obligatoire
-3. En cas de succès, rediriger l'utilisateur sur /login
+1. Faire le formulaire pour l'ajout d'un user CHECK
+2. Rendre username et le mot de passe obligatoire CHECK
+3. En cas de succès, rediriger l'utilisateur sur /login CHECK
 
 #### Level II
-4. Afficher les messages d'erreurs de validation pour le mot de passe
-5. Vérifier si le username est disponible. Informer l'utilisateur de l'indisponibilité d'un username.
+4. Afficher les messages d'erreurs de validation pour le mot de passe CHECK
+5. Vérifier si le username est disponible. Informer l'utilisateur de l'indisponibilité d'un username. CHECK
 
 
-### Login
+### Login CHECK
 
 #### Level I
 
-1. Faire le formulaire de login
-2. Rendre username et le mot de passe obligatoire
-3. Rediriger l'utilisateur sur "/" en cas de succès
+1. Faire le formulaire de login CHECK
+2. Rendre username et le mot de passe obligatoire CHECK
+3. Rediriger l'utilisateur sur "/" en cas de succès CHECK
 
 #### Level II
 
-4. Afficher les messages d'erreurs de validation pour chaque champs
-5. Afficher un message si le login à échoué
+4. Afficher les messages d'erreurs de validation pour chaque champs CHECK
+5. Afficher un message si le login à échoué CHECK
 
 
 ### Channel
