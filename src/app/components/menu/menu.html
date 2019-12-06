@@ -1,10 +1,20 @@
 <nav>
   <add-channel></add-channel>
-  <!-- TODO itérer sur les channels -->
+  <table>
+    <thead>
+      <th>Channels</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let channel of channels">
+        <td>{{channels}}</td>
+      </tr>
+    </tbody>
+  </table>
+
   <a [routerLink]=""></a>
 </nav>
 
-<style >
+<style>
   :host {
     display: block;
     padding: 0;
