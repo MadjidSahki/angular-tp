@@ -1,5 +1,7 @@
 <div class="social-app-feed">
-    <!-- itérer sur les posts et les afficher avec le composant post -->
+    <div *ngFor="let item of items">
+        <post [post]="item"></post>
+    </div>
 </div>
 <div class="social-app-inputs">
     <user-inputs (submitted)="onSubmit($event)" [channelId]="channelId"></user-inputs>
