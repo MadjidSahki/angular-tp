@@ -23,6 +23,7 @@
   {{post.message}}
   </pre>
   <div *ngIf="post.content">
+    <youtube-post-content *ngIf="post.content.type === 'youtube'" [postContent]="post.content"></youtube-post-content>
     <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
   </div>
 </div>

@@ -22,6 +22,7 @@ export class PostComponent {
     ngOnInit() {
         // détermine le bon type de contenu
         this.post.content = this.parser.parse(this.post);
+        console.log(this.post.content);
     }
 
     onComment(message: string) {

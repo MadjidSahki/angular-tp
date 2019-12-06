@@ -20,7 +20,6 @@ export class LoginComponent {
 
     async login() {
         this.failed = false;
-
         try {
             await this.authService.authenticate(this.model);
             this.router.navigate(['/']);
