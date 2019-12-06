@@ -20,8 +20,10 @@ export class LoginComponent {
 
     async login() {
         this.failed = false;
+
         try {
             await this.authService.authenticate(this.model);
+            this.router.navigate(['/']);
         }
         catch (e) {
             return this.failed = true;
