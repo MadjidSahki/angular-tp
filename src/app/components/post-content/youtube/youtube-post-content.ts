@@ -1,9 +1,10 @@
-import { Component, Input, Pipe } from '@angular/core';
+import { Component, Input, Pipe, ChangeDetectionStrategy } from '@angular/core';
 import { PostContent, YoutubePostContent } from 'models';
 import { DomSanitizer } from '@angular/platform-browser';
 @Component({
     templateUrl: 'youtube-post-content.html',
-    selector: 'youtube-post-content'
+    selector: 'youtube-post-content',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class YoutubeFeedContentComponent {
     @Input() postContent: YoutubePostContent;

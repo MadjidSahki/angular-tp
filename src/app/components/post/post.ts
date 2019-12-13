@@ -22,13 +22,15 @@ export class PostComponent {
     ngOnInit() {
         // détermine le bon type de contenu
         this.post.content = this.parser.parse(this.post);
-        console.log(this.post.content);
     }
 
-    onComment(message: string) {
-        this.postService.comment(this.post, message);
+    async onComment(message: string) {
+        let comment = await this.postService.comment(this.post, message);
+        this.post.comments.push(comment);
         this.postSocket.onComment((comment) => {
+            if(comment.user.id !== this.user.id) {
             this.post.comments.push(comment);
+            }
         });
     }
 
