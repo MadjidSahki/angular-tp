@@ -67,7 +67,7 @@ export class NotificationService {
         this.socketService.onComment((comment: Comment) => {
             let resp = new Notification();
             resp = {
-                type : this.notificationType.Like,
+                type : this.notificationType.Comment,
                 user: comment.user,
                 data: comment,
                 datetime: new Date()
