@@ -21,6 +21,7 @@ export class PostComponent {
 
     ngOnInit() {
         // détermine le bon type de contenu
+        console.log(this.post)
         this.post.content = this.parser.parse(this.post);
     }
 
@@ -28,8 +29,8 @@ export class PostComponent {
         let comment = await this.postService.comment(this.post, message);
         this.post.comments.push(comment);
         this.postSocket.onComment((comment) => {
-            if(comment.user.id !== this.user.id) {
-            this.post.comments.push(comment);
+            if (comment.user.id !== this.user.id) {
+                this.post.comments.push(comment);
             }
         });
     }
@@ -44,9 +45,9 @@ export class PostComponent {
         let like = await this.postService.like(this.post);
         console.log(like);
         this.postSocket.onLike((like) => {
-            if(like.post.id !== this.user.id) {
+            if (like.post.id !== this.user.id) {
             }
-            
+
         })
     }
 }
