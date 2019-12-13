@@ -21,8 +21,25 @@ export class PostComponent {
 
     ngOnInit() {
         // détermine le bon type de contenu
-        console.log(this.post)
         this.post.content = this.parser.parse(this.post);
+        console.log(this.post.content)
+        if (this.post.content != null) {
+            const regex = /(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg|mp4))/gmi;
+            const youtubeRegex = /(http[s]?:\/\/)?www\.(?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\/?\?(?:\S*?&?v\=))|youtu\.be\/)([a-zA-Z0-9_-]{6,11})/gmi;
+            const execute = regex.exec(this.post.message);
+            const executeYoutube = youtubeRegex.exec(this.post.message);
+            if (execute) {
+                let o = this.post.message.replace(execute[0], '');
+                this.post.message = o;
+            }
+
+            if (executeYoutube) {
+                let o = this.post.message.replace(executeYoutube[0], '');
+                this.post.message = o;
+            }
+
+        }
+
     }
 
     async onComment(message: string) {
