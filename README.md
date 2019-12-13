@@ -20,47 +20,47 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## TP
 
-### Register CHECK
+### Register ✔
 
-#### Level I
+#### Level I ✔
 
 1. Faire le formulaire pour l'ajout d'un user CHECK
 2. Rendre username et le mot de passe obligatoire CHECK
 3. En cas de succès, rediriger l'utilisateur sur /login CHECK
 
-#### Level II
+#### Level II ✔
 4. Afficher les messages d'erreurs de validation pour le mot de passe CHECK
 5. Vérifier si le username est disponible. Informer l'utilisateur de l'indisponibilité d'un username. CHECK
 
 
-### Login CHECK
+### Login CHECK ✔
 
-#### Level I
+#### Level I ✔
 
 1. Faire le formulaire de login CHECK
 2. Rendre username et le mot de passe obligatoire CHECK
 3. Rediriger l'utilisateur sur "/" en cas de succès CHECK
 
-#### Level II
+#### Level II ✔
 
 4. Afficher les messages d'erreurs de validation pour chaque champs CHECK
 5. Afficher un message si le login à échoué CHECK
 
 
-### Channel
+### Channel ✔
 
-#### Level I
+#### Level I ✔
 
 1. Afficher la liste des channels dans le menu
 2. Naviguer sur un channel au clic dans le menu
 
-#### Level II
+#### Level II ✔
 
 3. Pouvoir créer un nouveau channel
 4. Sélectionner par défaut le premier channel de la liste
 5. Ajouter ajouter les nouveaux channels dynamiquement
 
-### Post
+### Post 
 
 ### Level I
 
@@ -80,7 +80,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 10. Pouvoir parser plusieurs type de contenus dans un seul post
 11. Remplacer les liens http par des balises <a>...</a>.
 
-### Commentaires
+### Commentaires 
 
 ### Level I
 1. Pouvoir commenter un post
