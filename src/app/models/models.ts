@@ -1,3 +1,18 @@
+export enum NotificationType {
+    NewChannel = 'NewChannel',
+    UserConnect = 'UserConnect',
+    Post = 'Post',
+    Like = 'Like',
+    Comment = 'Comment'
+} 
+
+export class Notification {
+    type: NotificationType;
+    user?: User;
+    data: any;
+    datetime: Date;
+}
+
 export class UserLogin {
     username: string;
     password: string;

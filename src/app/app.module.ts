@@ -59,6 +59,7 @@ library.add(fas, far);
     ],
     providers: [
         services.AuthGuard,
+        services.NotificationService,
         services.UserStorageService,
         services.SocketService, {
             provide: services.ServerConfiguration,

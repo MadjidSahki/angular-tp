@@ -22,6 +22,10 @@ export class PostComponent {
     ngOnInit() {
         // détermine le bon type de contenu
         this.post.content = this.parser.parse(this.post);
+        this.postSocket.onLike((like) => {
+            if(like.post.id !== this.user.id) {
+            }      
+        });
     }
 
     async onComment(message: string) {
@@ -42,11 +46,5 @@ export class PostComponent {
             this.post.liked = !this.post.liked;
         }
         let like = await this.postService.like(this.post);
-        console.log(like);
-        this.postSocket.onLike((like) => {
-            if(like.post.id !== this.user.id) {
-            }
-            
-        })
     }
 }
