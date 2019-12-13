@@ -9,3 +9,4 @@ export { UserStorageService } from './UserStorageService';
 export { AuthenticationService } from './AuthenticationService';
 export { AuthGuard } from './AuthGuard';
 export { RegistrationService } from './RegistrationService';
+export { NotificationService } from './NotificationsService'
