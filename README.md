@@ -91,9 +91,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Level II ✔
 5. Parser les commentaires comme les posts : extraire les images, vidéos...
 
-### Activités et notifications 
+### Activités et notifications ✔
 
-### Level I
+### Level I ✔
 1. Créer un NotificationService
 2. Lister les activités dans le menu à droite
 3. Ajouter une activté lors d'un nouveau post via le NotificationService
@@ -102,13 +102,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 6. Ajouter une activité lors d'un like via le NotificationService
 7. Ajouter une activité lors de l'ajout d'un channel via le NotificationService
 
-### Level II
+### Level II ✔
 8. Afficher [une popup de notification](https://ng.ant.design/components/notification/en) pour chaque nouvelle activité
 9. Persister les activités dans le [localStorage](https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage) de façon à pouvoir les récupérer au realod de la page
 
 ### Level III
-10. Créer un service permettant de poster des [notifications web](https://developer.mozilla.org/fr/docs/Web/API/notification/Using_Web_Notifications) 
-11. N'afficher les notifications Web que si la page n'est pas visible grâce à l'évènement [visibilitychange](https://developer.mozilla.org/en-US/docs/Web/Events/visibilitychange)
+10. Créer un service permettant de poster des [notifications web](https://developer.mozilla.org/fr/docs/Web/API/notification/Using_Web_Notifications) ✔
+11. N'afficher les notifications Web que si la page n'est pas visible grâce à l'évènement [visibilitychange](https://developer.mozilla.org/en-US/docs/Web/Events/visibilitychange) ✔
 12. Si l'activité concerne un post (nouveau post, commentaire sur un post, like d'un post) rendre l'activité clicable. 
 Le clic doit rediriger sur le bon channel et scroller jusqu'au post concerné
 

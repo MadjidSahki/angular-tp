@@ -7,7 +7,7 @@
   </nz-form-item>
   <nz-form-item>
     <label for="pictureUrl">URL de la photo</label>
-    <input required type="pictureUrl" nz-input name="pictureUrl" [(ngModel)]="model.pictureUrl" #pictureUrl="ngModel" />
+    <input type="pictureUrl" nz-input name="pictureUrl" [(ngModel)]="model.pictureUrl" #pictureUrl="ngModel" />
     <nz-form-explain *ngIf="f.submitted && !pictureUrl.valid" class="help-block">Password requis</nz-form-explain>
   </nz-form-item>
   <nz-form-item>

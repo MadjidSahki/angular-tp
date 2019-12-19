@@ -6,7 +6,7 @@ export enum NotificationType {
     Comment = 'Comment'
 } 
 
-export class Notification {
+export class NotificationModel {
     type: NotificationType;
     user?: User;
     data: any;

@@ -1,15 +1,9 @@
 <nav>
   <add-channel (channelAdded)="getChannels()"></add-channel>
-  <table>
-    <thead>
-      <th>Channels</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let channel of channels">
-        <td [routerLink]="channel.id">{{channel.name}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <h3> Channels </h3>
+  <div *ngFor="let channel of channels">
+    <a [routerLink]="channel.id"> {{channel.name}} </a>
+  </div>
 </nav>
 
 <style>
@@ -22,6 +16,11 @@
 add-channel {
   border-bottom: 1px solid #eee;
 
+}
+
+h3 {
+  padding: 8px 16px;
+  text-align: center;
 }
 
 a {
