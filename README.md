@@ -60,9 +60,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 4. Sélectionner par défaut le premier channel de la liste
 5. Ajouter ajouter les nouveaux channels dynamiquement
 
-### Post 
+### Post ✔
 
-### Level I
+### Level I ✔
 
 1. Afficher les posts reçues pour le channel courant
 2. Afficher l'auteur des messages
@@ -73,22 +73,22 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 7. Afficher le player de youtube si le message contient un lien youtube
 8. Ajouter le bouton like
 
-### Level II
+### Level II ✔
 9. Retirer les urls des messages parsés pour ne restituer que son contenu
 
 ### Level III
 10. Pouvoir parser plusieurs type de contenus dans un seul post
 11. Remplacer les liens http par des balises <a>...</a>.
 
-### Commentaires 
+### Commentaires ✔
 
-### Level I
+### Level I ✔
 1. Pouvoir commenter un post
 2. Afficher les commentaires d'un post 
 3. Afficher l'auteur du commentaires
 4. Insérer les nouveaux commentaires reçues via WebSocket
 
-### Level II
+### Level II ✔
 5. Parser les commentaires comme les posts : extraire les images, vidéos...
 
 ### Activités et notifications 

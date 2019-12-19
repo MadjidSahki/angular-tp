@@ -23,7 +23,14 @@
   {{post.message}}
   </pre>
   <div *ngIf="post.content">
-    <youtube-post-content *ngIf="post.content.type === 'youtube'" [postContent]="post.content"></youtube-post-content>
+    
+      <span *ngFor="let item of post.content">
+          <youtube-post-content  *ngIf="item.type === 'youtube'" [postContent]="item"></youtube-post-content>
+          <picture-post-content *ngIf="item.type === 'picture'" [postContent]="item"></picture-post-content>
+          <video-post-content *ngIf="item.type === 'video'" [postContent]="item"></video-post-content>
+          <span class="text" *ngIf="item.type === 'text'">{{item.value.message}}</span>
+        </span>
+
     <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
   </div>
 </div>
