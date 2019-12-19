@@ -19,38 +19,56 @@ export class NotificationBarComponent implements OnInit {
     ngOnInit() {
         this.notificationService.onNewChannel((notif: Notification) => {
             if(notif && this.notifications.includes(notif) === false) {
-            this.notifications.push(notif);
-            this.computeNotifDisplay(notif);
+                this.notifications.push(notif);
+                this.addInLocalStorage(JSON.stringify(this.notifications));
+                this.computeNotifDisplay(notif);
             }
         });
 
         this.notificationService.onLike((notif: Notification) => {
             if(notif && this.notifications.includes(notif) === false) {
-            this.notifications.push(notif);
-            this.computeNotifDisplay(notif);
+                this.notifications.push(notif);
+                this.addInLocalStorage(JSON.stringify(this.notifications));
+                this.computeNotifDisplay(notif);
             }
         });
 
         this.notificationService.onComment((notif: Notification) => {
             if(notif && this.notifications.includes(notif) === false) {
-            this.notifications.push(notif);
-            this.computeNotifDisplay(notif);
+                this.notifications.push(notif);
+                this.addInLocalStorage(JSON.stringify(this.notifications));
+                this.computeNotifDisplay(notif);
             }
         });
 
         this.notificationService.onPost((notif: Notification) => {
             if(notif && this.notifications.includes(notif) === false) {
-            this.notifications.push(notif);
-            this.computeNotifDisplay(notif);
+                this.notifications.push(notif);
+                this.addInLocalStorage(JSON.stringify(this.notifications));
+                this.computeNotifDisplay(notif);
             }
         });
 
         this.notificationService.onUserConnect((notif: Notification) => {
             if(notif && this.notifications.includes(notif) === false) {
-            this.notifications.push(notif);
-            this.computeNotifDisplay(notif);
+                this.notifications.push(notif);
+                this.addInLocalStorage(JSON.stringify(this.notifications));
+                this.computeNotifDisplay(notif);
             }
         });
+        
+        let notifs: Notification[] = JSON.parse(this.getInLocalStorage());
+        notifs.forEach((notif) => {
+            this.notifications.push(notif);
+        })
+    }
+
+    getInLocalStorage() {
+        return localStorage.getItem('notifications');
+    }
+
+    addInLocalStorage(value: string) {
+        localStorage.setItem('notifications', value);
     }
 
     computeNotifDisplay(notif: Notification) {
@@ -67,30 +85,44 @@ export class NotificationBarComponent implements OnInit {
                     `User ${notif.user.username} commented ${notif.data.message} on post number "${notif.data.post.id}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`
                 );
                 break;
-                // return `User ${notif.user.username} commented ${notif.data.message} on post number "${notif.data.post.id}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`
             case this.notificationType.Like:
                     this.popupService.blank(
                         `User ${notif.user.username} liked a post`,
                         `User ${notif.user.username} liked post number "${notif.data.post.id}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`
                     );
                     break;
-                    // return `User ${notif.user.username} liked post number "${notif.data.post.id}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`;
             case this.notificationType.NewChannel:
                     this.popupService.blank(
                         `A channel named ${notif.data.name} was created`,
                         `A channel named ${notif.data.name} was created at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`
                     );
                     break;
-                // return `A channel named ${notif.data.name} was created at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`;
             case this.notificationType.Post:
                     this.popupService.blank(
                         `User ${notif.user.username} posted a message`,
                         `User ${notif.user.username} posted "${notif.data.message}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`
                     );
                     break;
-                // return `User ${notif.user.username} posted "${notif.data.message}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`;
             default:
                 break;
         }
     }
+
+    computeNotifListDiplay(notif: Notification) {
+        switch (notif.type) {
+            case this.notificationType.UserConnect:
+                return `User ${notif.user.username} connected at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`;
+            case this.notificationType.Comment:
+                return `User ${notif.user.username} commented ${notif.data.message} on post number "${notif.data.post.id}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`
+            case this.notificationType.Like:
+                return `User ${notif.user.username} liked post number "${notif.data.post.id}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`;
+            case this.notificationType.NewChannel:
+                return `A channel named ${notif.data.name} was created at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`;
+            case this.notificationType.Post:
+                return `User ${notif.user.username} posted "${notif.data.message}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`;
+            default:
+                break;
+        }
+    }
+
 }

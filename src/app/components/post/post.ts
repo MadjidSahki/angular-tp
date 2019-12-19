@@ -22,7 +22,6 @@ export class PostComponent {
     ngOnInit() {
         // détermine le bon type de contenu
         this.post.content = this.parser.parse(this.post);
-        console.log(this.post.content)
         if (this.post.content != null) {
             const regex = /(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg|mp4))/gmi;
             const youtubeRegex = /(http[s]?:\/\/)?www\.(?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\/?\?(?:\S*?&?v\=))|youtu\.be\/)([a-zA-Z0-9_-]{6,11})/gmi;
