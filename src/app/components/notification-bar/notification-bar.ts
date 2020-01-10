@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import { NotificationService } from 'src/app/services/NotificationsService';
 import { NotificationModel, NotificationType } from 'models';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'notification-bar',
@@ -11,10 +12,13 @@ export class NotificationBarComponent implements OnInit, AfterViewInit {
     private notifications: NotificationModel[] = [];
     private notificationType = NotificationType;
     private isVisible: boolean;
+    urlState: string;
+    public dateDisplayOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     constructor(
         private notificationService: NotificationService,
-        private popupService: NzNotificationService
+        private popupService: NzNotificationService,
+        private activatedRoute: ActivatedRoute
     ) { }
 
     ngOnInit() {
@@ -67,6 +71,13 @@ export class NotificationBarComponent implements OnInit, AfterViewInit {
         notifs.forEach((notif) => {
             this.notifications.push(notif);
         });
+
+        // WIP
+        this.activatedRoute.url.subscribe(url => {
+            if(url) {
+                this.urlState = url[0].path;
+            }
+        });
     }
 
     ngAfterViewInit(): void {
@@ -116,31 +127,31 @@ export class NotificationBarComponent implements OnInit, AfterViewInit {
             case this.notificationType.UserConnect:
                 this.popupService.blank(
                     `User ${notif.user.username} connected`,
-                    `User ${notif.user.username} connected at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`
+                    `User ${notif.user.username} connected at ${new Date(notif.datetime).toLocaleString('en-GB')}`
                 );
                 break;
             case this.notificationType.Comment:
                 this.popupService.blank(
                     `User ${notif.user.username} commented a post`,
-                    `User ${notif.user.username} commented ${notif.data.message} on post number "${notif.data.post.id}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`
+                    `User ${notif.user.username} commented ${notif.data.message} on post number "${notif.data.post.id}" at ${new Date(notif.datetime).toLocaleString('en-GB')}`
                 );
                 break;
             case this.notificationType.Like:
                 this.popupService.blank(
                     `User ${notif.user.username} liked a post`,
-                    `User ${notif.user.username} liked post number "${notif.data.post.id}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`
+                    `User ${notif.user.username} liked post number "${notif.data.post.id}" at ${new Date(notif.datetime).toLocaleString('en-GB')}`
                 );
                 break;
             case this.notificationType.NewChannel:
                 this.popupService.blank(
                     `A channel named ${notif.data.name} was created`,
-                    `A channel named ${notif.data.name} was created at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`
+                    `A channel named ${notif.data.name} was created at ${new Date(notif.datetime).toLocaleString('en-GB')}`
                 );
                 break;
             case this.notificationType.Post:
                 this.popupService.blank(
                     `User ${notif.user.username} posted a message`,
-                    `User ${notif.user.username} posted "${notif.data.message}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`
+                    `<a> User ${notif.user.username} posted "${notif.data.message}" at ${new Date(notif.datetime).toLocaleString('en-GB')} </a>`
                 );
                 break;
             default:
@@ -151,15 +162,15 @@ export class NotificationBarComponent implements OnInit, AfterViewInit {
     computeNotifStringDiplay(notif: NotificationModel) {
         switch (notif.type) {
             case this.notificationType.UserConnect:
-                return `User ${notif.user.username} connected at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`;
+                return `User ${notif.user.username} connected at ${new Date(notif.datetime).toLocaleString('en-GB')}`;
             case this.notificationType.Comment:
-                return `User ${notif.user.username} commented ${notif.data.message} on post number "${notif.data.post.id}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`
+                return `User ${notif.user.username} commented ${notif.data.message} on post number "${notif.data.post.id}" at ${new Date(notif.datetime).toLocaleString('en-GB')}`
             case this.notificationType.Like:
-                return `User ${notif.user.username} liked post number "${notif.data.post.id}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`;
+                return `User ${notif.user.username} liked post number "${notif.data.post.id}" at ${new Date(notif.datetime).toLocaleString('en-GB')}`;
             case this.notificationType.NewChannel:
-                return `A channel named ${notif.data.name} was created at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`;
+                return `A channel named ${notif.data.name} was created at ${new Date(notif.datetime).toLocaleString('en-GB')}`;
             case this.notificationType.Post:
-                return `User ${notif.user.username} posted "${notif.data.message}" at ${notif.datetime.toLocaleString("en-US", { hour12: false })}`;
+                return `User ${notif.user.username} posted "${notif.data.message}" at ${new Date(notif.datetime).toLocaleString('en-GB')}`;
             default:
                 break;
         }

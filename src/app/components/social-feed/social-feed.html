@@ -1,5 +1,5 @@
 <div class="social-app-feed">
-    <div *ngFor="let item of items">
+    <div *ngFor="let item of items" [attr.id]='item.id'>
         <post [post]="item"></post>
     </div>
 </div>

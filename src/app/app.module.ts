@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, ExtraOptions } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { rootRouterConfig } from './app.routes';
@@ -16,8 +16,15 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgZorroAntdModule, NZ_I18N, fr_FR } from 'ng-zorro-antd';
+
 import { registerLocaleData } from '@angular/common';
 import fr from '@angular/common/locales/fr';
+
+const routerOptions: ExtraOptions = {
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled',
+    scrollOffset: [0, 64],
+};
 
 registerLocaleData(fr);
 library.add(fas, far);
@@ -53,10 +60,10 @@ library.add(fas, far);
                 blacklistedRoutes: [`${host}:${port}/api/authentication/login/`]
             }
         }),
-        RouterModule.forRoot(rootRouterConfig),
+        RouterModule.forRoot(rootRouterConfig, routerOptions),
         FontAwesomeModule,
         BrowserAnimationsModule,
-        NgZorroAntdModule
+        NgZorroAntdModule,
     ],
     providers: [
         services.AuthGuard,
